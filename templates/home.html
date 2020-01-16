@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+<!-- WILL CHANGE THIS PAGE TO BE THE MAIN PAGE
+AND SHOW PROJECTS POSTED-->
+
+<body>
+    {% block body %}
+    <nav>
+        <div class="nav-wrapper">
+            <div class="nav-container">
+                <b>DevNode</b>
+            </div>
+        </div>
+    </nav>
+    <div class="msg-board">
+        <div class="msg-title">
+            Projects
+        </div>
+        <hr>
+        <div class="msg-form">
+            {% for projects in post %}
+            <div class="project-card">
+                {{ project }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="post-project-panel">
+       {{ form.project_name.lable() }}
+       {{ form.project_name() }}
+       {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+    {% endblock body %}
+</body>
