@@ -52,3 +52,15 @@ body {
         border-radius:4px;
         padding-bottom:2pc;
 }
+
+.home-body{
+    backgroun-color:whitesmoke;
+}
+.home-project-card{
+    background-color:aliceblue;
+    padding-bottom:3cm;
+    z-index:1;
+    box-shadow: rgba(0, 0, 0, 0.178);
+    border-radius: :2px;
+    margin:0;
+}
