@@ -40,7 +40,7 @@ body {
         top: 4px;
     }
     
-.projeect-card {
+.project-card {
         background-color: rgb(148, 255, 116);
         font-family: trench;
         font-size: 17px;
@@ -54,13 +54,13 @@ body {
 }
 
 .home-body{
-    backgroun-color:whitesmoke;
+    background-color:whitesmoke;
 }
 .home-project-card{
     background-color:aliceblue;
     padding-bottom:3cm;
     z-index:1;
     box-shadow: rgba(0, 0, 0, 0.178);
-    border-radius: :2px;
+    border-radius:2px;
     margin:0;
 }

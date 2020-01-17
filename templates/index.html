@@ -29,7 +29,7 @@
                 <div class="form-group">
                     {{ form.user.label(class="form-control-label") }} {% if form.user.errors %} {{ form.email(class="form-control-label") }}
                     <div class="invalid-feedback">
-                        {% for error in form.email.errore %}
+                        {% for error in form.email.error %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
