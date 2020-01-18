@@ -22,6 +22,9 @@
             {% endfor %}
         </div>
     </div>
+    <div class="profile-info">
+        {{current_user.username}}
+    </div>
     <div class="post-project-panel">
        {{ form.project_name.lable() }}
        {{ form.project_name() }}
