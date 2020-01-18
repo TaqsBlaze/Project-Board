@@ -12,11 +12,16 @@ body {
         left: 2cm;
         width: 15cm;
         top: 2.4cm;
-        text-align: center;
+        text-align:center;
         float: left;
         box-shadow: 1px 10px 10px 1px rgba(63, 63, 61, 0.226);
     }
-    
+.login-panel .iner-login-panel{
+    position:relative;
+    margin-left:30px;
+    width:12cm;
+    text-align: left;
+}
 .msg-board {
         background: white;
         font-family: trench;

@@ -5,14 +5,14 @@ from wtforms.validators import DataRequired, Length,Email,EqualTo
 class RegistrationForm(FlaskForm):
 	username = StringField('Username',validators=[DataRequired(),Length(min=3,max=20)])
 	email = StringField('Email',validators=[DataRequired(),Email()])
-	number = IntegerField("Phone number",validators=[DataRequired()])
+	#number = IntegerField("Phone number",validators=[DataRequired()])
 	password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=8)])
 	conferm_password = PasswordField('Conferm Password',validators=[DataRequired(),EqualTo('password')])
 	submit = SubmitField('Sign Up')
 
 class LoginForm(FlaskForm):
 	#username = StringField('Username',validators=[DataRequired(),Length(min=3,max=20)])
-	user = StringField('User name',validators=[DataRequired(),Email()])
+	user = StringField('User name',validators=[DataRequired()])
 	password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=8)])
 	remender = BooleanField("Remeber me")
 	submit = SubmitField('Login')

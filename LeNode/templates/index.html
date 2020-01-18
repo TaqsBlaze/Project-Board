@@ -22,17 +22,18 @@
     </div>
     <div class="login-panel">
         <h3 style="font-family:trench">Login</h3>
-    </div>
-        <div>
-            <div <form method='POST' action="">
+        <div class="iner-login-panel">
+            <form method='POST' action="">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
-                    {{ form.user.label(class="form-control-label") }} {% if form.user.errors %} {{ form.email(class="form-control-label") }}
-                    <div class="invalid-feedback">
-                        {% for error in form.email.error %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
+                    {{ form.user.label(class="form-control-label") }}
+                    {% if form.user.errors %}
+                        {{ form.user(class="form-control-label") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.user.error %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
                     {% endif %}
                     {{ form.user(class="form-control-label") }}
                 </div>
@@ -40,11 +41,12 @@
                     {{ form.password.label(class="form-control-label") }}
                     {{ form.password(class="form-control-label") }}
                 </div>
-                <div class="form-group">
-                    {{ form.submit(class="btn btn-outline-info") }}
-                </div>
-                </form>
             </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            </form>
         </div>
+    </div>
         {% endblock body %}
 </body>

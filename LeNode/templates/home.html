@@ -12,9 +12,10 @@ AND SHOW PROJECTS POSTED-->
                 </div>
             </div>
         </nav>
-        {{for project in projects }}
+        {% for project in projects %}
             <div class="home-project-card">
                 {{ project }}
             </div>
+        {% endfor %}
     {% endblock body %}
 </body>

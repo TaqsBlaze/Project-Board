@@ -7,22 +7,34 @@
     </div>
 </nav>
 <div class="login-panel">
-    <form method='POST' action="">
-        {{ form.hidden_tag() }}
-        <div class="form-group">
-            {{ form.username.label(class="form-control-label") }} {% if form.username.errors %} {{ form.email(class="form-control-label") }}
-            <div class="invalid-feedback">
-                {% for error in form.email.errore %}
-                <span>{{ error }}</span> {% endfor %}
+    Register
+     <div class="iner-login-panel">
+        <form method='POST' action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label(class="form-control-label") }} {% if form.username.errors %} {{ form.email(class="form-control-label") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errore %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% endif %} {{ form.username(class="form-control-label") }}
             </div>
-            {% endif %} {{ form.username(class="form-control-label") }}
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {{ form.email(class="form-control-label") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                {{ form.password(class="form-control-label") }}
+            </div>
+            <div class="form-group">
+                {{ form.conferm_password.label(class="form-control-label") }}
+                {{ form.conferm_password(class="form-control-label") }}
+            </div>
         </div>
-        <div class="form-group">
-            {{ form.password.label(class="form-control-label") }} {{ form.password(class="form-control-label") }}
-        </div>
-        <div class="form-group">
-            {{ form.submit(class="btn btn-outline-info") }}
-        </div>
-    </form>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
 </div>
 {% endblock body %}
