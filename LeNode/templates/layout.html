@@ -2,10 +2,11 @@
 <html>
 	<head>
 		{% if title %}
-			<title>DevNode - {{ title }}</title>
+			<title>CodeBase - {{ title }}</title>
 		{% else %}
-			<title> DevNode</title>
+			<title>CodeBase</title>
 		{% endif %}
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
 		<!--<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.js') }}"></script>-->
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap-grid.css') }}">

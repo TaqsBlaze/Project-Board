@@ -1,7 +1,7 @@
-body {
-        background-color: #D7D7D7;
+body{
+    background-color:white;
     }
-    
+
 .login-panel {
         background: rgb(255, 255, 255);
         font-family: trench;
@@ -58,9 +58,6 @@ body {
         padding-bottom:2pc;
 }
 
-.home-body{
-    background-color:whitesmoke;
-}
 .home-project-card{
     background-color:aliceblue;
     padding-bottom:3cm;

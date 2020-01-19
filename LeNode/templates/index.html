@@ -5,7 +5,7 @@
     <nav>
         <div class="nav-wrapper">
             <div class="nav-content">
-                <b style="margin:10px;">DevHangOut</b>
+                <b style="margin:10px;">CodeBase</b>
                 <a href="{{ url_for('register') }}" class="btn m-4">
                     <small>Register</small>
                 </a>
@@ -16,8 +16,7 @@
     <div style="background:rgb(255, 255, 255);font-family:trench;font-size:25px;border-radius:8px;
 		position: relative;
 		margin-left:8cm;left:2cm;width:15cm;text-align: center;float:left;box-shadow:1px 10px 10px 1px rgba(63, 63, 61, 0.226);">
-        <img src="{{url_for('static',filename='images/chat.png')}}">
-        <img src="{{url_for('static',filename='images/colab.png')}}">
+        <img src="{{url_for('static',filename='images/default.png')}}" width="50px" height="50px">
         <br> Collaborate with Developers around the country
     </div>
     <div class="login-panel">
@@ -29,11 +28,11 @@
                     {{ form.user.label(class="form-control-label") }}
                     {% if form.user.errors %}
                         {{ form.user(class="form-control-label") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.user.error %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
+                            <div class="invalid-feedback">
+                                {% for error in form.user.error %}
+                                    <span>{{ error }}</span>
+                        {% endfor %}
+                            </div>
                     {% endif %}
                     {{ form.user(class="form-control-label") }}
                 </div>
