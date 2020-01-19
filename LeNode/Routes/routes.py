@@ -4,6 +4,20 @@ from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm
 from LeNode import App
 from LeNode import db,bcrypt
 
+projects = [
+    {'title':'Softaz',
+     'about':'A software research program working on making peoples lives through technology',
+     'Author':'Softaz'
+     },
+    {'title':'Softaz',
+     'about':'A software research program',
+     'Author':'Softaz'
+     },
+    {'title':'Softaz',
+     'about':'A software research program',
+     'Author':'Softaz'
+     }
+]
 @App.route("/",methods=['GET','POST'])
 @App.route("/index",methods=['GET','POST'])
 def index():
@@ -17,13 +31,13 @@ def index():
 
 @App.route("/home",methods=['GET','POST'])
 def home():
-    form = Post()
-    return render_template("home.html",title='Home',form=form)
+    return render_template("home.html",title='Home',projects=projects)
 
 
 @App.route("/profile",methods=['GET','POST'])
 def profile():
-    return render_template("profile.html")
+    post_form = PostForm()
+    return render_template("profile.html",form=post_form,projects=projects)
 
 @App.route("/register",methods=['GET','POST'])
 def register():

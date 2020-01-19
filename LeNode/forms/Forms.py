@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField,SubmitField, BooleanField,IntegerField
+from wtforms import StringField, PasswordField,SubmitField, BooleanField,IntegerField,TextField
 from wtforms.validators import DataRequired, Length,Email,EqualTo,ValidationError
 from LeNode.Models.models import User
 class RegistrationForm(FlaskForm):
@@ -28,5 +28,6 @@ class LoginForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = StringField("enter text",validators=[DataRequired(),Length(min=1,max=30)])
+    project_name = StringField("Project title",validators=[DataRequired(),Length(min=1,max=30)])
+    project_description = TextField("Project description",validators=[DataRequired(),Length(min=4,max=120)])
     send = SubmitField("Send")

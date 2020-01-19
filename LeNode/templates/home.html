@@ -9,14 +9,19 @@ AND SHOW PROJECTS POSTED-->
             <div class="nav-wrapper">
                 <div class="nav-container">
                     <b style="margin:10px;">CodeBase</b>
+                    <a class="btn" href="{{url_for('profile')}}">Profile</a>
                 </div>
             </div>
         </nav>
         <hr>
         {% for project in projects %}
             <div class="home-project-card">
-                {{ project }}
+                <div class="content">
+                    <h4>{{ project.title }}</h4>
+                    <p>{{ project.about }}</p>
+                </div> 
             </div>
+            <hr class="divider-hr">
         {% endfor %}
     {% endblock body %}
 </body>

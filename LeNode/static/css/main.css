@@ -45,24 +45,43 @@ body{
         top: 4px;
     }
     
-.project-card {
+.msg-board .mgs-form .project-card {
         background-color: rgb(148, 255, 116);
         font-family: trench;
         font-size: 17px;
-        text-align: center;
+        border-radius: 4px;
+        padding-bottom: 4px;
+        margin: 5px;
+        width:14.5cm;
     }
     
 .post-project-panel {
         background-color: white;
         border-radius:4px;
-        padding-bottom:2pc;
+        padding-bottom:2cm;
+        position:absolute;
+        float: left;
+        width:10cm;
+        margin: 5px;
+        box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
 }
 
 .home-project-card{
-    background-color:aliceblue;
-    padding-bottom:3cm;
-    z-index:1;
-    box-shadow: rgba(0, 0, 0, 0.178);
-    border-radius:2px;
+    background-color:white;
+    padding-bottom:2cm;
+    z-index:0;
+    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+    border-radius:3px;
+    margin:10px;
+    width:25cm;
+}
+
+.home-project-card .content{
+    margin:5px;
+    position:relative;
+    top:4px;
+}
+.divider-hr{
+    width:25cm;
     margin:0;
 }
