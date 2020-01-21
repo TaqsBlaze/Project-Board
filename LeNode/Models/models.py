@@ -1,4 +1,3 @@
-import gunicorn
 from datetime import datetime
 from LeNode import db
 
