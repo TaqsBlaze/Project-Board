@@ -1,3 +1,3 @@
-from LeNode import App
+from LeNode import app
 if(__name__ == "__main__"):
-	App.run(debug = False)
+	app.run(debug = True)

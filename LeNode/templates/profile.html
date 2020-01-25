@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-<!-- HERE A USER WILL BE ABLE TO POST THERE PROJECTS-->
+<!-- HERE A USE WILL BE ABLE TO UPDATE THERE PROFILE-->
 <body>
     {% block body %}
     <nav>
@@ -22,14 +22,14 @@
             {% endfor %}
         </div>
     </div>
-    <div class="profile-info">
-    </div>
-    <div class="post-project-panel">
-       {{ form.project_name.label() }}
-       {{ form.project_name() }}
-       {{ form.project_description.label() }}
-       {{ form.project_description(class="form-control-plaintext")}}
-       {{ form.send(class="btn btn-outline-info") }}
-    </div>
+    <div class="profile-info"></div>
+		<div class="post-profile-update">
+		   {{ form.user_name.label(class="form-control-label") }}
+		   {{ form.user_name(class="form-control-label") }}
+		   {{ form.user_email.label(class="form-control-label") }}
+		   {{ form.user_email(class="form-control-plaintext")}}
+		   {{ form.send(class="btn btn-outline-info") }}
+		</div>
+	
     {% endblock body %}
 </body>

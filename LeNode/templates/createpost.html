@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+	<nav>
+		<div class="nav-wraper">
+			<div class="nav-content">
+				<b>CodeBase</b>
+			</div>
+		</div>
+	</nav>
+	<div class="content-box">
+		<div class="new-post-panel">
+			<div class="content-block">
+				<form action="" method="POST">
+					{{form.project_title.label(class="form-control-plaintext")}}
+					{{form.project_title(class="form-control-plaintext")}}
+					{{form.project_description.label(class="form-control-plaintext")}}
+					{{form.project_description(class="form-control-plaintext")}}
+					{{form.submit(class="btn btn-small mt-3")}}
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock body %}

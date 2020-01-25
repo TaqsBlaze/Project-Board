@@ -1,9 +1,9 @@
 from flask import render_template,url_for,redirect,flash
 from LeNode.Models.models import User, Post
-from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm
-from LeNode import App
+from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile
+from LeNode import app
 from LeNode import db,bcrypt
-
+from flask_login import login_user,current_user,logout_user,login_required
 projects = [
     {'title':'Softaz',
      'about':'A software research program working on making peoples lives through technology',
@@ -18,28 +18,32 @@ projects = [
      'Author':'Softaz'
      }
 ]
-@App.route("/",methods=['GET','POST'])
-@App.route("/index",methods=['GET','POST'])
+@app.route("/",methods=['GET','POST'])
+@app.route("/index",methods=['GET','POST'])
 def index():
     form = LoginForm()
-    user = User.query.filter_by(username=form.user.data).first()
+    
     if(form.validate_on_submit()):
+        user = User.query.filter_by(username=form.user.data).first()
         if(user and bcrypt.check_password_hash(user.password,form.password.data)):
+            login_user(user,remember=form.remember.data)
             return redirect(url_for('home'))
     return render_template("index.html",title = 'Index',form=form)
 
 
-@App.route("/home",methods=['GET','POST'])
+@app.route("/home",methods=['GET','POST'])
+@login_required
 def home():
     return render_template("home.html",title='Home',projects=projects)
 
 
-@App.route("/profile",methods=['GET','POST'])
+@app.route("/profile",methods=['GET','POST'])
+@login_required
 def profile():
-    post_form = PostForm()
+    post_form = UpdateProfile()
     return render_template("profile.html",form=post_form,projects=projects)
 
-@App.route("/register",methods=['GET','POST'])
+@app.route("/register",methods=['GET','POST'])
 def register():
     form = RegistrationForm()
     if(form.validate_on_submit()):
@@ -53,3 +57,11 @@ def register():
         except Exception as e:
             return f"Could not create User<br> {e}"
     return render_template("register.html",title="register",form=form)
+
+@app.route("/newpost",methods=['GET','POST'])
+@login_required
+def new_post():
+    form = PostForm()
+    if(form.validate_on_submit()):
+        pass
+    return render_template("createpost.html",title="New Post",form=form)

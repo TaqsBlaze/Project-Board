@@ -55,11 +55,12 @@ body{
         width:14.5cm;
     }
     
-.post-project-panel {
+.post-profile-update {
         background-color: white;
         border-radius:4px;
         padding-bottom:2cm;
         position:absolute;
+        top:2cm;
         float: left;
         width:10cm;
         margin: 5px;
@@ -84,4 +85,17 @@ body{
 .divider-hr{
     width:25cm;
     margin:0;
+}
+.new-post-panel{
+    background-color: white;
+    width:16cm;
+    height: 8cm;
+    margin-left:6cm;
+    position:relative;
+    margin-top:2cm;
+    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+}
+.new-post-panel .content-block{
+    margin:6px;
+    float: inline-start;
 }
