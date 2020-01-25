@@ -18,7 +18,10 @@ AND SHOW PROJECTS POSTED-->
         {% for project in projects %}
             <div class="home-project-card">
                 <div class="content">
-                    <h4>{{ project.title }}</h4>
+                    <div class="card-image">
+                        <img src="{{profile_pic}}" class="home-image-section">
+                    </div>
+                    <h4 style="position:relative;margin-left:1.5cm;">{{ current_user.username }}</h4>
 					<hr>
                     <p>{{ project.about }}</p>
                 </div> 

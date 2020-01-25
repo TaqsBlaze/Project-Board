@@ -11,11 +11,12 @@
 		<div class="new-post-panel">
 			<div class="content-block">
 				<form action="" method="POST">
-					{{form.project_title.label(class="form-control-plaintext")}}
-					{{form.project_title(class="form-control-plaintext")}}
-					{{form.project_description.label(class="form-control-plaintext")}}
-					{{form.project_description(class="form-control-plaintext")}}
-					{{form.submit(class="btn btn-small mt-3")}}
+					{{ form.hidden_tag() }}
+						{{form.project_title.label(class="form-control-label")}}
+						{{form.project_title(class="form-control-label")}}
+						{{form.project_description.label(class="form-control-label")}}
+						{{form.project_description(class="form-control-label form-row form-control-plaintext form-control-lg")}}
+						{{form.submit(class="btn btn-group-lg mt-3")}}
 				</form>
 			</div>
 		</div>

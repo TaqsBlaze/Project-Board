@@ -37,14 +37,12 @@ body{
         box-shadow: 1px 10px 10px 1px rgba(63, 63, 61, 0.226);
         height: 14.8cm;
     }
-    
 .msg-title {
         font-family: trench;
         font-size: 16px;
         position: relative;
         top: 4px;
     }
-    
 .msg-board .mgs-form .project-card {
         background-color: rgb(148, 255, 116);
         font-family: trench;
@@ -54,19 +52,20 @@ body{
         margin: 5px;
         width:14.5cm;
     }
-    
 .post-profile-update {
         background-color: white;
         border-radius:4px;
         padding-bottom:2cm;
         position:absolute;
-        top:2cm;
+        top:3.5cm;
         float: left;
-        width:10cm;
-        margin: 5px;
+        width:14cm;
+        margin-left:4cm;
         box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
 }
-
+.post-profile-update .content{
+    margin:8px;
+}
 .home-project-card{
     background-color:white;
     padding-bottom:2cm;
@@ -86,7 +85,7 @@ body{
     width:25cm;
     margin:0;
 }
-.new-post-panel{
+.content-box .new-post-panel{
     background-color: white;
     width:16cm;
     height: 8cm;
@@ -95,7 +94,31 @@ body{
     margin-top:2cm;
     box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
 }
-.new-post-panel .content-block{
-    margin:6px;
+.content-box .new-post-panel .content-block{
+    margin:8px;
     float: inline-start;
+}
+.details{
+    margin: 5px;
+}
+
+.post-profile-update .profile-info .details .image-section{
+    margin: 5px;
+    border-radius: 100pc;
+    width:120px;
+    height: 120px;
+    border-style: solid;
+}
+.post-profile-update .profile-info .details .user-name{
+    position:absolute;
+    float: right;
+    margin-left:3.5cm;
+    top:0.5cm;
+}
+.home-project-card .content .home-image-section{
+    width:50px;
+    height: 50px;
+    border-radius: 100pc;
+    border-style: solid;
+    position:absolute;
 }

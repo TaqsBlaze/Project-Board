@@ -22,14 +22,30 @@
             {% endfor %}
         </div>
     </div>
-    <div class="profile-info"></div>
-		<div class="post-profile-update">
-		   {{ form.user_name.label(class="form-control-label") }}
-		   {{ form.user_name(class="form-control-label") }}
-		   {{ form.user_email.label(class="form-control-label") }}
-		   {{ form.user_email(class="form-control-plaintext")}}
-		   {{ form.send(class="btn btn-outline-info") }}
+	<div class="post-profile-update">
+        <div class="profile-info">
+            <div class="details">
+                <div class="user-name">
+                    <h3>{{current_user.username}}</h3>
+                </div>
+                <div class="card-image">
+                    <img class="image-section"
+                    src="{{profile_pic}}">
+                </div>
+            </div>
+        <div class="content">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                    {{ form.username.label(class="form-control-label") }}
+                    {{ form.username(class="form-control-label") }}
+                    {{ form.bio.label(class="form-control-label") }}
+                    {{ form.bio(class="form-control-plaintext")}}
+                    {{ form.image.label(class="form-control-file mt-3")}}
+                    {{ form.image(class="form-control-file file-field")}}
+                    {{ form.send(class="btn btn-outline-info badge-primary") }}
+            </form>
+        </div>
 		</div>
-	
+	</div>
     {% endblock body %}
 </body>

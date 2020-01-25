@@ -1,28 +1,32 @@
-from flask import render_template,url_for,redirect,flash
+from flask import render_template,url_for,redirect,flash,request
 from LeNode.Models.models import User, Post
 from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile
 from LeNode import app
+import secrets
+import os
 from LeNode import db,bcrypt
 from flask_login import login_user,current_user,logout_user,login_required
-projects = [
-    {'title':'Softaz',
-     'about':'A software research program working on making peoples lives through technology',
-     'Author':'Softaz'
-     },
-    {'title':'Softaz',
-     'about':'A software research program',
-     'Author':'Softaz'
-     },
-    {'title':'Softaz',
-     'about':'A software research program',
-     'Author':'Softaz'
-     }
-]
+
+
+# projects = [
+#     {'title':'Softaz',
+#      'about':'A software research program working on making peoples lives through technology',
+#      'Author':'Softaz'
+#      },
+#     {'title':'Softaz',
+#      'about':'A software research program',
+#      'Author':'Softaz'
+#      },
+#     {'title':'Softaz',
+#      'about':'A software research program',
+#      'Author':'Softaz'
+#      }
+# ]
 @app.route("/",methods=['GET','POST'])
 @app.route("/index",methods=['GET','POST'])
 def index():
     form = LoginForm()
-    
+
     if(form.validate_on_submit()):
         user = User.query.filter_by(username=form.user.data).first()
         if(user and bcrypt.check_password_hash(user.password,form.password.data)):
@@ -34,14 +38,38 @@ def index():
 @app.route("/home",methods=['GET','POST'])
 @login_required
 def home():
-    return render_template("home.html",title='Home',projects=projects)
+    projects = Post.query.all()
+    profile_pic = url_for("static",filename="images/profile_pix/" + current_user.profile_pic)
+    return render_template("home.html",title='Home',projects=projects,profile_pic=profile_pic)
+
+
+def save_image(form_image):
+    random_hex = secrets.token_hex(8)
+    file_name,filext = os.path.splitext(form_image.filename)
+    image_name = random_hex + filext
+    image_path = os.path.join(app.root_path,'static/images/profile_pix',image_name)
+    form_image.save(image_path)
+    return image_name
 
 
 @app.route("/profile",methods=['GET','POST'])
 @login_required
 def profile():
-    post_form = UpdateProfile()
-    return render_template("profile.html",form=post_form,projects=projects)
+    form = UpdateProfile()
+    projects = Post.query.all()
+    if(form.validate_on_submit()):
+        if(form.image.data):
+            image_file = save_image(form.image.data)
+            current_user.profile_pic = image_file
+        current_user.username = form.username.data
+        current_user.bio = form.bio.data
+        db.session.commit()
+        return redirect(url_for('profile'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.bio.data = current_user.bio
+    profile_pic = url_for("static",filename="images/profile_pix/" + current_user.profile_pic)
+    return render_template("profile.html",form=form,projects=projects,profile_pic=profile_pic)
 
 @app.route("/register",methods=['GET','POST'])
 def register():
@@ -63,5 +91,8 @@ def register():
 def new_post():
     form = PostForm()
     if(form.validate_on_submit()):
-        pass
+        project = Post(title=form.project_title.data,post=form.project_description.data,author=current_user)
+        db.session.add(project)
+        db.session.commit()
+        return redirect("home")
     return render_template("createpost.html",title="New Post",form=form)
