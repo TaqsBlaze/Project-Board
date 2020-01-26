@@ -68,12 +68,12 @@ body{
 }
 .home-project-card{
     background-color:white;
-    padding-bottom:2cm;
+    padding-bottom:1cm;
     z-index:0;
     box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
     border-radius:3px;
     margin:10px;
-    width:25cm;
+    width:15cm;
 }
 
 .home-project-card .content{
