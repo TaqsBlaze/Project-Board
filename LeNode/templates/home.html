@@ -8,7 +8,7 @@ AND SHOW PROJECTS POSTED-->
         <nav>
             <div class="nav-wrapper">
                 <div class="nav-container">
-                    <b style="margin:10px;">CodeBase</b>
+                    <a href="{{url_for('home')}}"><b style="margin=10px;">CodeBase</b></a>
                     <a class="btn" href="{{url_for('profile')}}">Profile</a>
                     <a class="btn btn-toolbar" href="{{url_for('new_post')}}">New post</a>
                 </div>
@@ -21,10 +21,10 @@ AND SHOW PROJECTS POSTED-->
                     <div class="card-image">
                         <img src="{{url_for('static',filename='images/profile_pix/' + project.author.profile_pic)}}" class="home-image-section">
                     </div>
-                    <h4 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h4>
-					<hr>
+                    <h5 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h5>
+					<hr class="divider-hr">
                     <p><b><h5>{{ project.title }}</h5></b></p>
-                    <small>{{ project.post}}</small>
+                    {{ project.post}}
                 </div> 
             </div>
         {% endfor %}

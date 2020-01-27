@@ -82,8 +82,7 @@ body{
     top:4px;
 }
 .divider-hr{
-    width:25cm;
-    margin:0;
+    margin-top:25px;
 }
 .content-box .new-post-panel{
     background-color: white;

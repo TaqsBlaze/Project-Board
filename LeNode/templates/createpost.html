@@ -3,7 +3,7 @@
 	<nav>
 		<div class="nav-wraper">
 			<div class="nav-content">
-				<b>CodeBase</b>
+				<a href="{{url_for('home')}}"><b style="margin=10px;">CodeBase</b></a>
 			</div>
 		</div>
 	</nav>
@@ -13,10 +13,10 @@
 				<form action="" method="POST">
 					{{ form.hidden_tag() }}
 						{{form.project_title.label(class="form-control-label")}}
-						{{form.project_title(class="form-control-label")}}
+						{{form.project_title(class="form-control-label form-control-sm is-invalid")}}
 						{{form.project_description.label(class="form-control-label")}}
-						{{form.project_description(class="form-control-label form-row form-control-plaintext form-control-lg")}}
-						{{form.submit(class="btn btn-group-lg mt-3")}}
+						{{form.project_description(class="form-control form-control-lg")}}
+						{{form.submit(class="btn btn-group-lg mt-3 btn-outline-danger")}}
 				</form>
 			</div>
 		</div>

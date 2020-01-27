@@ -5,14 +5,14 @@
     <nav>
         <div class="nav-wrapper">
             <div class="nav-content">
-                <b style="margin:10px;">CodeBase</b>
+                <a href="{{url_for('home')}}"><b style="margin=10px;">CodeBase</b></a>
                 <a href="{{ url_for('register') }}" class="btn m-4">
                     <small>Register</small>
                 </a>
             </div>
         </div>
     </nav>
-
+    </script>
     <div style="background:rgb(255, 255, 255);font-family:trench;font-size:25px;border-radius:8px;
 		position: relative;
 		margin-left:8cm;left:2cm;width:15cm;text-align: center;float:left;box-shadow:1px 10px 10px 1px rgba(63, 63, 61, 0.226);">
@@ -39,6 +39,10 @@
                 <div class="form-group">
                     {{ form.password.label(class="form-control-label") }}
                     {{ form.password(class="form-control-label") }}
+                </div>
+                <div class="form-group">
+                    {{ form.remember.label(class="form-control-label") }}
+                    {{ form.remember() }}
                 </div>
             </div>
             <div class="form-group">
