@@ -8,20 +8,6 @@ from LeNode import db,bcrypt
 from flask_login import login_user,current_user,logout_user,login_required
 
 
-# projects = [
-#     {'title':'Softaz',
-#      'about':'A software research program working on making peoples lives through technology',
-#      'Author':'Softaz'
-#      },
-#     {'title':'Softaz',
-#      'about':'A software research program',
-#      'Author':'Softaz'
-#      },
-#     {'title':'Softaz',
-#      'about':'A software research program',
-#      'Author':'Softaz'
-#      }
-# ]
 @app.route("/",methods=['GET','POST'])
 @app.route("/index",methods=['GET','POST'])
 def index():
@@ -56,11 +42,11 @@ def save_image(form_image):
 @login_required
 def profile():
     form = UpdateProfile()
-    projects = Post.query.all()
-    if(form.validate_on_submit()):
-        if(form.image.data):
+    projects = Post.query.filter_by(title=Post.title)
+    if(form.image.data):
             image_file = save_image(form.image.data)
             current_user.profile_pic = image_file
+    if(form.validate_on_submit()):
         current_user.username = form.username.data
         current_user.bio = form.bio.data
         db.session.commit()
@@ -91,7 +77,7 @@ def register():
 def new_post():
     form = PostForm()
     if(form.validate_on_submit()):
-        project = Post(title=form.project_title.data,post=form.project_description.data,author=current_user)
+        project = Post(title=form.project_title.data,content=form.project_description.data,author=current_user)
         db.session.add(project)
         db.session.commit()
         return redirect("home")

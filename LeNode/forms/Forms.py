@@ -49,7 +49,7 @@ class UpdateProfile(FlaskForm):
         if(bio.data != current_user.bio):
             bio = User.query.filter_by(bio=bio.data).first()
             if(bio):
-                raise ValidationError("that email is already taken")
+                raise ValidationError("")
 
 class PostForm(FlaskForm):
 	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=8)])
