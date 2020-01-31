@@ -121,3 +121,9 @@ body{
     border-style: solid;
     position:absolute;
 }
+iframe{
+    width:66.5%;
+    height:17cm;
+    border-top:0px;
+    border-left:0px;
+}

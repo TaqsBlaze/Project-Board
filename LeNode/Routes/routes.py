@@ -18,15 +18,13 @@ def index():
         if(user and bcrypt.check_password_hash(user.password,form.password.data)):
             login_user(user,remember=form.remember.data)
             return redirect(url_for('home'))
-    return render_template("index.html",title = 'Index',form=form)
+    return render_template("index.html",form=form)
 
 
 @app.route("/home",methods=['GET','POST'])
 @login_required
 def home():
-    projects = Post.query.all()
-    profile_pic = url_for("static",filename="images/profile_pix/" + current_user.profile_pic)
-    return render_template("home.html",title='Home',projects=projects,profile_pic=profile_pic)
+    return render_template("home.html",title='Home')
 
 
 def save_image(form_image):
@@ -82,3 +80,9 @@ def new_post():
         db.session.commit()
         return redirect("home")
     return render_template("createpost.html",title="New Post",form=form)
+
+@app.route("/posts",methods=['GET'])
+def posts():
+    projects = Post.query.all()
+    profile_pic = url_for("static",filename="images/profile_pix/" + current_user.profile_pic)
+    return render_template("posts.html",projects=projects,profile_pic=profile_pic)

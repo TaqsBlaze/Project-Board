@@ -15,19 +15,8 @@ AND SHOW PROJECTS POSTED-->
             </div>
         </nav>
         <hr><p/>
-        {% for project in projects %}
-           <!--<iframe src="{{url_for('home')}}"></iframe>-->
-            <div class="home-project-card">
-                <div class="content">
-                    <div class="card-image">
-                        <img src="{{url_for('static',filename='images/profile_pix/' + project.author.profile_pic)}}" class="home-image-section">
-                    </div>
-                    <h5 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h5>
-					<hr class="divider-hr">
-                    <p><b><h5>{{ project.title }}</h5></b></p>
-                    {{ project.post}}
-                </div> 
-            </div>
-        {% endfor %}
+        <div class="container">
+            <iframe src="{{url_for('posts')}}"></iframe>
+        </div>
     {% endblock body %}
 </body>
