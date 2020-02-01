@@ -75,7 +75,7 @@ def register():
 def new_post():
     form = PostForm()
     if(form.validate_on_submit()):
-        project = Post(title=form.project_title.data,content=form.project_description.data,author=current_user)
+        project = Post(title=form.project_title.data,post=form.project_description.data,author=current_user)
         db.session.add(project)
         db.session.commit()
         return redirect("home")
