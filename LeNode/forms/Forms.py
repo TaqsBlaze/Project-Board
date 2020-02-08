@@ -55,3 +55,7 @@ class PostForm(FlaskForm):
 	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=8)])
 	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=60)])
 	submit = SubmitField("Post")
+
+class Search(FlaskForm):
+    search = StringField("Search",validators=[DataRequired()])
+    submit = SubmitField("Search")

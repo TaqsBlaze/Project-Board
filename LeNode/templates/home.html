@@ -8,22 +8,40 @@ AND SHOW PROJECTS POSTED-->
         <nav>
             <div class="nav-wrapper">
                 <div class="nav-container">
-                    <a href="{{url_for('home')}}"><b style="margin=10px;">CodeBase</b></a>
+                    <a href="{{url_for('home')}}"><b style="margin:10px;">CodeBase</b></a>
                     <a class="btn" href="{{url_for('profile')}}">Profile</a>
                     <a class="btn btn-toolbar" href="{{url_for('new_post')}}">New post</a>
                 </div>
             </div>
         </nav>
         <hr><p/>
-        <!--
-            WILL IMPLEMENT A SEARCH OPERATION HERE
-        <div class="Search-user">
+        <div class="search-user">
+            <div class="search-form">
+            
             <form action="" method="POST">
-                {% search.label(class='form-control')%}
-                {% search(class="form-control") %}
+                {{ search_form.hidden_tag() }}
+                    {{ search_form.search.label(class="form-control-sm col-form-label") }}
+                    {{ search_form.search(class="form-control-label form-text ml-3 mt-0 place") }}
+                    {{ search_form.submit(class="circle btn-secondary btn-small search-btn-place ml-3")}}
             </form>
+            </div>
         </div>
-        -->
+           <!--
+        <div class="search-results">
+         
+            {% if search %}
+                {% for results in search %}
+                    <div class="search-data">
+                        <div class="user-name">
+                            {{results.username}}
+                        </div>
+                        <div class="bio">
+                            {{results.bio}}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+                -->
         </div>
         <div class="container">
             <iframe src="{{url_for('posts')}}"></iframe>

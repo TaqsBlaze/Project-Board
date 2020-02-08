@@ -127,3 +127,48 @@ iframe{
     border-top:0px;
     border-left:0px;
 }
+.search-user{
+    position:relative;
+    padding-bottom:0.3cm;
+    top:0.1cm;
+    float:right;
+    margin-right:3cm;
+    width:9.6cm;
+    padding-bottom:17px;
+    border-radius:5px;
+    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+}
+.search-user .search-form{
+    width:7.5cm;
+    height:2.5cm;
+    font-family: trench;
+    font-size:23px;
+    place-items: 5px 8px;
+    padding-bottom:4px;
+}
+.place{
+    position:relative;
+    top:-23px;
+}
+.search-btn-place{
+    position:relative;
+    top:-18px;
+}
+.search-results{
+    position: relative;
+    top:5cm;
+    margin-left:15cm;
+    float:right;
+    width:11cm;
+    height: 8cm;
+    place-items: 5px 8px;
+    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+}
+.search-results .search-data{
+    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+    border-radius: 6px;
+}
+.search-results .search-data .bio{
+    position: relative;
+    margin-top: 0.2cm;
+}

@@ -1,6 +1,6 @@
 from flask import render_template,url_for,redirect,flash,request
 from LeNode.Models.models import User, Post
-from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile
+from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile,Search
 from LeNode import app
 import secrets
 import os
@@ -24,7 +24,11 @@ def index():
 @app.route("/home",methods=['GET','POST'])
 @login_required
 def home():
-    return render_template("home.html",title='Home')
+    search_form = Search()
+    if(search_form.validate_on_submit()):
+        search = User.query.filter_by(username=search_form.search.data)
+        return render_template("home.html",title='Home',search_form=search_form,search=search)
+    return render_template("home.html",title='Home',search_form=search_form)
 
 
 def save_image(form_image):
@@ -83,6 +87,9 @@ def new_post():
 
 @app.route("/posts",methods=['GET'])
 def posts():
+    '''
+    This function is used by the <iframe> tag to show posts
+    '''
     projects = Post.query.all()
     profile_pic = url_for("static",filename="images/profile_pix/" + current_user.profile_pic)
     return render_template("posts.html",projects=projects,profile_pic=profile_pic)
