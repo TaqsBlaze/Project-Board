@@ -110,7 +110,7 @@ def posts():
 @app.route("/sug_notifs",methods=['GET'])
 def sug_notifs():
     '''
-    This function is used by the <iframe responsible for
+    This function is used by the <iframe> responsible for
     showing search results and suggestions and notifications
     '''
     return render_template("sug_results.html")
