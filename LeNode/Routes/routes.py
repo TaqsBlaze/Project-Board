@@ -1,6 +1,5 @@
 from flask import render_template,url_for,redirect,flash,request
 from LeNode.Models.models import User, Post
-from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile,Search
 from LeNode import app
 import secrets
 import os
@@ -24,11 +23,16 @@ def index():
 @app.route("/home",methods=['GET','POST'])
 @login_required
 def home():
+    '''
+    Home route
+    '''
     search_form = Search()
     if(search_form.validate_on_submit()):
         search = User.query.filter_by(username=search_form.search.data)
-        return render_template("home.html",title='Home',search_form=search_form,search=search)
-    return render_template("home.html",title='Home',search_form=search_form)
+        return redirect(url_for("home"))
+    else:
+        search = None
+    return render_template("home.html",title='Home',search_form=search_form,search=search)
 
 
 def save_image(form_image):
@@ -43,6 +47,9 @@ def save_image(form_image):
 @app.route("/profile",methods=['GET','POST'])
 @login_required
 def profile():
+    '''
+    User profile page route
+    '''
     form = UpdateProfile()
     projects = Post.query.filter_by(title=Post.title)
     if(form.image.data):
@@ -61,6 +68,9 @@ def profile():
 
 @app.route("/register",methods=['GET','POST'])
 def register():
+    '''
+    Registration route
+    '''
     form = RegistrationForm()
     if(form.validate_on_submit()):
         try:
@@ -77,6 +87,9 @@ def register():
 @app.route("/newpost",methods=['GET','POST'])
 @login_required
 def new_post():
+    '''
+    function for creating and posting a post
+    '''
     form = PostForm()
     if(form.validate_on_submit()):
         project = Post(title=form.project_title.data,post=form.project_description.data,author=current_user)
@@ -93,3 +106,11 @@ def posts():
     projects = Post.query.all()
     profile_pic = url_for("static",filename="images/profile_pix/" + current_user.profile_pic)
     return render_template("posts.html",projects=projects,profile_pic=profile_pic)
+
+@app.route("/sug_notifs",methods=['GET'])
+def sug_notifs():
+    '''
+    This function is used by the <iframe responsible for
+    showing search results and suggestions and notifications
+    '''
+    return render_template("sug_results.html")
