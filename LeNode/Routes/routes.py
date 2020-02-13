@@ -1,5 +1,6 @@
 from flask import render_template,url_for,redirect,flash,request
 from LeNode.Models.models import User, Post
+from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile,Search
 from LeNode import app
 import secrets
 import os
