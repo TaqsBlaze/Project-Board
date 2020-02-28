@@ -1,0 +1,16 @@
+<html>
+	<head>
+
+	</head>
+	<body>
+		{% if search %}
+			{% for results in search %}
+				{{results}}
+			{% endfor %}
+		{% else %}
+			{% for suggestion in suggetions %}
+				{{suggestion}}
+			{% endfor %}
+		{% endif %}
+	</body>
+</html>

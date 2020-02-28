@@ -1,3 +1,9 @@
 {
-	"python.pythonPath": "project\\Scripts\\python3.6.exe"
+	"python.pythonPath": "project\\Scripts\\python3.6.exe",
+	"cSpell.words": [
+		"filext",
+		"iframe",
+		"iner",
+		"suggetions"
+	]
 }

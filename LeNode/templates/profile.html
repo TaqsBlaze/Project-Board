@@ -5,7 +5,7 @@
     <nav>
         <div class="nav-wrapper">
             <div class="nav-container">
-                <b style="margin=10px;">CodeBase</b>
+            <a href="{{url_for('home')}}"><b style="margin:10px;" class="btn btn-small btn-danger">CodeBase</b></a>
             </div>
         </div>
     </nav>
@@ -28,14 +28,14 @@
         <div class="profile-info">
             <div class="details">
                 <div class="user-name">
-                    <h3>{{current_user.username}}</h3>
+                    <h4>{{current_user.username}}</h4>
                 </div>
                 <div class="card-image">
                     <img class="image-section"
                     src="{{profile_pic}}">
                 </div>
             </div>
-        <div class="content">
+        <div class="container-fluid">
             <form action="" method="POST" enctype="multipart/form-data">
                 {{ form.hidden_tag() }}
                     {{ form.username.label(class="form-control-label") }}
@@ -44,7 +44,7 @@
                     {{ form.bio(class="form-control-plaintext")}}
                     {{ form.image.label(class="form-control-file mt-3")}}
                     {{ form.image(class="form-control-file file-field")}}
-                    {{ form.send(class="btn btn-outline-info badge-primary") }}
+                    {{ form.send(class="btn-light btn badge-primary mt-4") }}
             </form>
         </div>
 		</div>

@@ -13,17 +13,18 @@ class User(db.Model,UserMixin):
     profile_pic = db.Column(db.String(20),unique=False,default='default.png')
     password = db.Column(db.String(60),nullable=False)
     bio = db.Column(db.String(120),unique=False)
+    notifications = db.Column(db.Integer,primary_key = False,unique = False,default = 0)
     posts = db.relationship('Post',backref='author',lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}','{self.email}','{self.profile_pic}')"
+        return f"User('{self.username}','{self.email}','{self.profile_pic}','{self.notifications}')"
 
 
 class Post(db.Model):
      id = db.Column(db.Integer,primary_key = True)
      title = db.Column(db.String(100),nullable=False)
      date_posted = db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
-     post = db.Column(db.Text,nullable=False)
+     post = db.Column(db.Text(),nullable=False)
      user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
 
      def __repr__(self):

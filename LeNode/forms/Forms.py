@@ -10,7 +10,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email',validators=[DataRequired(),Email()])
     #number = IntegerField("Phone number",validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=8)])
-    conferm_password = PasswordField('Conferm Password',validators=[DataRequired(),EqualTo('password')])
+    confirm_password = PasswordField('Conferm Password',validators=[DataRequired(),EqualTo('password')])
     submit = SubmitField('Sign Up')
 
     def validate_username(self,username):
@@ -49,9 +49,13 @@ class UpdateProfile(FlaskForm):
         if(bio.data != current_user.bio):
             bio = User.query.filter_by(bio=bio.data).first()
             if(bio):
-                raise ValidationError("that email is already taken")
+                raise ValidationError("")
 
 class PostForm(FlaskForm):
-	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=8)])
-	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=60)])
+	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=20)])
+	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=250)])
 	submit = SubmitField("Post")
+
+class Search(FlaskForm):
+    search = StringField("Search",validators=[DataRequired()])
+    submit = SubmitField("Search")

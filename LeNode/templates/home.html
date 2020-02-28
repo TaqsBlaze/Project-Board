@@ -8,25 +8,56 @@ AND SHOW PROJECTS POSTED-->
         <nav>
             <div class="nav-wrapper">
                 <div class="nav-container">
-                    <b style="margin:10px;">CodeBase</b>
+                    <a href="{{url_for('home')}}"><b style="margin:10px;">CodeBase</b></a>
                     <a class="btn" href="{{url_for('profile')}}">Profile</a>
                     <a class="btn btn-toolbar" href="{{url_for('new_post')}}">New post</a>
                 </div>
             </div>
         </nav>
         <hr><p/>
-        {% for project in projects %}
-            <div class="home-project-card">
-                <div class="content">
-                    <div class="card-image">
-                        <img src="{{url_for('static',filename='images/profile_pix/' + project.author.profile_pic)}}" class="home-image-section">
-                    </div>
-                    <h4 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h4>
-					<hr>
-                    <p><b><h5>{{ project.title }}</h5></b></p>
-                    <small>{{ project.post}}</small>
-                </div> 
+        <div class="search-user">
+            <div class="search-form">
+            <form action="" method="POST">
+                {{ search_form.hidden_tag() }}
+                    {{ search_form.search.label(class="form-control-sm col-form-label") }}
+                    {{ search_form.search(class="form-control-label form-text ml-3 mt-0 place") }}
+                    {{ search_form.submit(class="circle btn-secondary btn-small search-btn-place ml-3")}}
+            </form>
+            <!--
+            <div class="search-results">
+                {% if search %}
+                    {% for results in search %}
+                        <div class="search-data">
+                            <div class="user-name">
+                                {{results.username}}
+                            </div>
+                            <div class="bio">
+                                {{results.bio}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
-        {% endfor %}
+        -->
+        </div>
+           <!--
+        <div class="search-results">
+            {% if search %}
+                {% for results in search %}
+                    <div class="search-data">
+                        <div class="user-name">
+                            {{results.username}}
+                        </div>
+                        <div class="bio">
+                            {{results.bio}}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+                -->
+        </div>
+        <div class="container">
+            <iframe src="{{url_for('posts')}}"></iframe>
+        </div>
     {% endblock body %}
 </body>
