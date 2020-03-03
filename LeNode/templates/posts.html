@@ -1,18 +1,20 @@
 {% extends "layout.html" %}
 {% block body %}
-{% for project in projects %}
- <div class="home-project-card">
-	 <div class="content">
-		 <div class="card-image">
-			 <img src="{{url_for('static',filename='images/profile_pix/' + project.author.profile_pic)}}" class="home-image-section">
-		 </div>
-		 <p>
-			<h5 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h5>
-		 </p>
-		 <hr class="divider-hr">
-		 <p><b><h5>{{ project.title }}</h5></b></p>
-		 <p>{{ project.post}}</p>
-	 </div> 
- </div>
-{% endfor %}
+<main>
+	{% for project in projects[::-1] %}
+	 <div class="home-project-card">
+		 <div class="content">
+			 <div class="card-image">
+				 <img src="{{url_for('static',filename='images/profile_pix/' + project.author.profile_pic)}}" class="home-image-section">
+			 </div>
+			 <p>
+				<h5 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h5>
+			 </p>
+			 <hr class="divider-hr">
+			 <p><b><h5>{{ project.title }}</h5></b><small class="post-date">{{project.date_posted.date()}}</small></p><br>
+			 <p class="post-content">{{ project.post}}</p>
+		 </div> 
+	 </div>
+	{% endfor %}
+</main>
 {% endblock body %}
