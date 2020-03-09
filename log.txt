@@ -1,0 +1,103 @@
+2020-03-09T13:55:13.533917+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+2020-03-09T13:55:13.533917+00:00 app[web.1]: return util.import_app(self.app_uri)
+2020-03-09T13:55:13.533918+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/util.py", line 358, in import_app
+2020-03-09T13:55:13.533918+00:00 app[web.1]: mod = importlib.import_module(module)
+2020-03-09T13:55:13.533918+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/importlib/__init__.py", line 126, in import_module
+2020-03-09T13:55:13.533919+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)
+2020-03-09T13:55:13.533919+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+2020-03-09T13:55:13.533920+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+2020-03-09T13:55:13.533921+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+2020-03-09T13:55:13.533921+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 655, in _load_unlocked
+2020-03-09T13:55:13.533921+00:00 app[web.1]: File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+2020-03-09T13:55:13.533922+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 205, in _call_with_frames_removed
+2020-03-09T13:55:13.533922+00:00 app[web.1]: File "/app/run.py", line 1, in <module>
+2020-03-09T13:55:13.533923+00:00 app[web.1]: from LeNode import app
+2020-03-09T13:55:13.533923+00:00 app[web.1]: File "/app/LeNode/__init__.py", line 12, in <module>
+2020-03-09T13:55:13.533923+00:00 app[web.1]: from LeNode.Routes import routes
+2020-03-09T13:55:13.533924+00:00 app[web.1]: File "/app/LeNode/Routes/routes.py", line 3, in <module>
+2020-03-09T13:55:13.533924+00:00 app[web.1]: from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile,Search
+2020-03-09T13:55:13.533925+00:00 app[web.1]: File "/app/LeNode/forms/Forms.py", line 55
+2020-03-09T13:55:13.533925+00:00 app[web.1]: <<<<<<< HEAD
+2020-03-09T13:55:13.533926+00:00 app[web.1]: ^
+2020-03-09T13:55:13.533934+00:00 app[web.1]: IndentationError: expected an indented block
+2020-03-09T13:55:13.534304+00:00 app[web.1]: /app/.heroku/python/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:835: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+2020-03-09T13:55:13.534305+00:00 app[web.1]: 'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+2020-03-09T13:55:13.534518+00:00 app[web.1]: [2020-03-09 13:55:13 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-03-09T13:55:13.553973+00:00 app[web.1]: [2020-03-09 13:55:13 +0000] [11] [ERROR] Exception in worker process
+2020-03-09T13:55:13.553976+00:00 app[web.1]: Traceback (most recent call last):
+2020-03-09T13:55:13.553977+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+2020-03-09T13:55:13.553977+00:00 app[web.1]: worker.init_process()
+2020-03-09T13:55:13.553978+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 119, in init_process
+2020-03-09T13:55:13.553978+00:00 app[web.1]: self.load_wsgi()
+2020-03-09T13:55:13.553979+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+2020-03-09T13:55:13.553979+00:00 app[web.1]: self.wsgi = self.app.wsgi()
+2020-03-09T13:55:13.553980+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2020-03-09T13:55:13.553980+00:00 app[web.1]: self.callable = self.load()
+2020-03-09T13:55:13.553980+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+2020-03-09T13:55:13.553981+00:00 app[web.1]: return self.load_wsgiapp()
+2020-03-09T13:55:13.553981+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+2020-03-09T13:55:13.553981+00:00 app[web.1]: return util.import_app(self.app_uri)
+2020-03-09T13:55:13.553982+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/util.py", line 358, in import_app
+2020-03-09T13:55:13.553982+00:00 app[web.1]: mod = importlib.import_module(module)
+2020-03-09T13:55:13.553983+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/importlib/__init__.py", line 126, in import_module
+2020-03-09T13:55:13.553986+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)
+2020-03-09T13:55:13.553987+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+2020-03-09T13:55:13.553987+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+2020-03-09T13:55:13.553988+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 950, in _find_and_load_unlocked
+2020-03-09T13:55:13.553988+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 655, in _load_unlocked
+2020-03-09T13:55:13.553989+00:00 app[web.1]: File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+2020-03-09T13:55:13.553989+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 205, in _call_with_frames_removed
+2020-03-09T13:55:13.553990+00:00 app[web.1]: File "/app/run.py", line 1, in <module>
+2020-03-09T13:55:13.553990+00:00 app[web.1]: from LeNode import app
+2020-03-09T13:55:13.553990+00:00 app[web.1]: File "/app/LeNode/__init__.py", line 12, in <module>
+2020-03-09T13:55:13.553991+00:00 app[web.1]: from LeNode.Routes import routes
+2020-03-09T13:55:13.553991+00:00 app[web.1]: File "/app/LeNode/Routes/routes.py", line 3, in <module>
+2020-03-09T13:55:13.553991+00:00 app[web.1]: from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile,Search
+2020-03-09T13:55:13.553992+00:00 app[web.1]: File "/app/LeNode/forms/Forms.py", line 55
+2020-03-09T13:55:13.553992+00:00 app[web.1]: <<<<<<< HEAD
+2020-03-09T13:55:13.553993+00:00 app[web.1]: ^
+2020-03-09T13:55:13.554037+00:00 app[web.1]: IndentationError: expected an indented block
+2020-03-09T13:55:13.554609+00:00 app[web.1]: [2020-03-09 13:55:13 +0000] [11] [INFO] Worker exiting (pid: 11)
+2020-03-09T13:55:13.656394+00:00 app[web.1]: Traceback (most recent call last):
+2020-03-09T13:55:13.656409+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 209, in run
+2020-03-09T13:55:13.656861+00:00 app[web.1]: self.sleep()
+2020-03-09T13:55:13.656902+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 357, in sleep
+2020-03-09T13:55:13.657231+00:00 app[web.1]: ready = select.select([self.PIPE[0]], [], [], 1.0)
+2020-03-09T13:55:13.657236+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+2020-03-09T13:55:13.657518+00:00 app[web.1]: self.reap_workers()
+2020-03-09T13:55:13.657541+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+2020-03-09T13:55:13.657874+00:00 app[web.1]: raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+2020-03-09T13:55:13.658011+00:00 app[web.1]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+2020-03-09T13:55:13.658013+00:00 app[web.1]: 
+2020-03-09T13:55:13.658013+00:00 app[web.1]: During handling of the above exception, another exception occurred:
+2020-03-09T13:55:13.658032+00:00 app[web.1]: 
+2020-03-09T13:55:13.658039+00:00 app[web.1]: Traceback (most recent call last):
+2020-03-09T13:55:13.658040+00:00 app[web.1]: File "/app/.heroku/python/bin/gunicorn", line 8, in <module>
+2020-03-09T13:55:13.658156+00:00 app[web.1]: sys.exit(run())
+2020-03-09T13:55:13.658156+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 58, in run
+2020-03-09T13:55:13.658294+00:00 app[web.1]: WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+2020-03-09T13:55:13.658296+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/base.py", line 228, in run
+2020-03-09T13:55:13.658457+00:00 app[web.1]: super().run()
+2020-03-09T13:55:13.658457+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/base.py", line 72, in run
+2020-03-09T13:55:13.658566+00:00 app[web.1]: Arbiter(self).run()
+2020-03-09T13:55:13.658569+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 229, in run
+2020-03-09T13:55:13.658726+00:00 app[web.1]: self.halt(reason=inst.reason, exit_status=inst.exit_status)
+2020-03-09T13:55:13.658731+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 342, in halt
+2020-03-09T13:55:13.658925+00:00 app[web.1]: self.stop()
+2020-03-09T13:55:13.658930+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 393, in stop
+2020-03-09T13:55:13.659134+00:00 app[web.1]: time.sleep(0.1)
+2020-03-09T13:55:13.659138+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+2020-03-09T13:55:13.659300+00:00 app[web.1]: self.reap_workers()
+2020-03-09T13:55:13.659304+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+2020-03-09T13:55:13.659537+00:00 app[web.1]: raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+2020-03-09T13:55:13.659566+00:00 app[web.1]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+2020-03-09T13:55:13.754382+00:00 heroku[web.1]: Process exited with status 1
+2020-03-09T14:12:25.460059+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=lenode.herokuapp.com request_id=42803c58-b39c-49be-821a-8e9c98041677 fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+2020-03-09T14:12:39.305566+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=lenode.herokuapp.com request_id=bd14a91e-1ea9-4e2d-b64b-45ca98f82feb fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+2020-03-09T14:13:50.048948+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=lenode.herokuapp.com request_id=daa0ce67-c882-437a-8bac-f9425c087d8e fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+2020-03-09T14:13:56.238296+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=lenode.herokuapp.com request_id=b0abc743-d72b-4f6e-8a49-2e8f8e170586 fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+2020-03-09T14:14:04.804090+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/register" host=lenode.herokuapp.com request_id=49df8845-0517-4e32-87a4-88f89b6d22d9 fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+2020-03-09T14:14:14.535046+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=lenode.herokuapp.com request_id=e238503a-738d-4954-b299-08bc45f43a95 fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+2020-03-09T14:14:46.185816+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=lenode.herokuapp.com request_id=670a70e9-223f-412b-8b78-e4be686f59e2 fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+2020-03-09T14:15:01.047557+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=lenode.herokuapp.com request_id=895c662c-04a8-4e15-ba11-0789e5f9eae6 fwd="197.221.254.244" dyno= connect= service= status=503 bytes= protocol=https
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? 
