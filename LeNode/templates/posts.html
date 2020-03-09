@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
+<<<<<<< HEAD
 <main>
 	{% for project in projects[::-1] %}
 	 <div class="home-project-card">
@@ -17,4 +18,19 @@
 	 </div>
 	{% endfor %}
 </main>
+=======
+{% for project in projects %}
+ <div class="home-project-card">
+	 <div class="content">
+		 <div class="card-image">
+			 <img src="{{url_for('static',filename='images/profile_pix/' + project.author.profile_pic)}}" class="home-image-section">
+		 </div>
+		 <h5 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h5>
+		 <hr class="divider-hr">
+		 <p><b><h5>{{ project.title }}</h5></b></p>
+		 {{ project.post}}
+	 </div> 
+ </div>
+{% endfor %}
+>>>>>>> 18d3ce6f224bbe7ebcd3cf6112adc5aa14e0ce29
 {% endblock body %}

@@ -8,7 +8,8 @@ __pycache__/
 *.so
 # Windows bat scripts
 *.bat
-
+project/
+LeNode/db/*.*
 # Distribution / packaging
 .Python
 build/
