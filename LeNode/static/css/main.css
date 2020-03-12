@@ -102,9 +102,8 @@ body{
 	color:lightblue;
 	font-family: "New Roman",Roboto;
 	position:relative;
-	top:-0.5px;
-	float:left;
-    margin-top:25px;
+	top:-1px;
+    margin-top:20px;
 }
 .content-box .new-post-panel{
     background-color: white;
@@ -145,14 +144,6 @@ body{
     position:absolute;
 }
 iframe{
-    width:66.1%;
-	overflow:hidden;
-    height:17cm;
-    border-top:0px;
-    border-left:0px;
-    border-bottom:0px;
-    border-width:thin;
-    border-color:lightgray;
     width:66.5%;
     height:17cm;
     border-top:0px;
@@ -165,11 +156,10 @@ iframe{
     float:right;
     margin-right:1cm;
     width:9.6cm;
-    padding-bottom:19px;
+    padding-bottom:25px;
     border-radius:3px;
     margin-right:3cm;
     width:9.6cm;
-    padding-bottom:5px;
     border-radius:5px;
     box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
 }
@@ -206,5 +196,4 @@ iframe{
 .search-results .search-data .bio{
     position: relative;
     margin-top: 0.2cm;
-}
 }
