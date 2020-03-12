@@ -52,10 +52,8 @@ class UpdateProfile(FlaskForm):
                 raise ValidationError("")
 
 class PostForm(FlaskForm):
-	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=20)])
-	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=250)])
-	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=8)])
-	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=60)])
+	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=50)])
+	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=450)])
 	submit = SubmitField("Post")
 
 class Search(FlaskForm):

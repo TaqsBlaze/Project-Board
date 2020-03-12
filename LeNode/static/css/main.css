@@ -89,7 +89,8 @@ body{
 .post-content{
 	font-family: "Lucida Console",Consolas;
 	latter-spacing:-2.8px;
-	word-spacing:-4.8px;
+    word-spacing:-4.8px;
+    overflow: hidden;
 }
 .divider-hr{
     margin-top:33px;
@@ -155,15 +156,21 @@ iframe{
     top:0.1cm;
     float:right;
     margin-right:1cm;
-    width:9.6cm;
+    width:11.6cm;
     padding-bottom:25px;
     border-radius:3px;
-    margin-right:3cm;
-    width:9.6cm;
-    border-radius:5px;
-    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+    box-shadow:0px 2px 1px 0px rgba(0, 0, 0, 0.294);
+    display: flexbox;
+    flex-direction: column;
+    flex-flow: column;
 }
-.search-user .search-form{
+.search-user .search-user-inner{
+    padding-bottom:0.3cm;
+    width:11.6cm;
+    padding-bottom:25px;
+    border-radius:3px;
+}
+.search-user-inner .search-form{
     width:7.5cm;
     height:2.5cm;
     font-family: trench;
@@ -179,21 +186,8 @@ iframe{
     position:relative;
     top:-18px;
 }
-.search-results{
-    position: relative;
-    top:5cm;
-    margin-left:15cm;
-    float:right;
-    width:11cm;
-    height: 8cm;
-    place-items: 5px 8px;
-    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
-}
-.search-results .search-data{
-    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
-    border-radius: 6px;
-}
-.search-results .search-data .bio{
-    position: relative;
-    margin-top: 0.2cm;
+.search-frame{
+    width:10.2cm;
+    height: 10.4cm;
+    margin-left: 0.5cm;
 }
