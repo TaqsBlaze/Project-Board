@@ -11,8 +11,9 @@ body{
         margin-left: 8cm;
         left: 2cm;
         width: 15cm;
-        top: 2.4cm;
+        top: 1.4cm;
         text-align:center;
+        height: 16cm;
         float: left;
         box-shadow: 1px 10px 10px 1px rgba(63, 63, 61, 0.226);
     }
