@@ -58,14 +58,13 @@ body{
         border-radius:4px;
         padding-bottom:2cm;
         position:absolute;
-        top:3.5cm;
-        float: left;
+        top:2.1cm;
         width:14cm;
-        margin-left:4cm;
+        margin-left:0.2cm;
         box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
 }
-.post-profile-update .content{
-    margin:8px;
+.post-profile-update .profile-info{
+    margin:23px;
 }
 .home-project-card{
     background-color:white;
@@ -92,6 +91,8 @@ body{
 	latter-spacing:-2.8px;
     word-spacing:-4.8px;
     overflow: hidden;
+    position: relative;
+    top:-0.7cm;
 }
 .divider-hr{
     margin-top:33px;
