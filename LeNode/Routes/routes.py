@@ -19,7 +19,7 @@ def index():
             login_user(user,remember=form.remember.data)
             return redirect(url_for('home'))
         else:
-            flash(f"Please check username and password","danger")
+            flash("Please check username and password","danger")
     return render_template("index.html",form=form)
 
 
