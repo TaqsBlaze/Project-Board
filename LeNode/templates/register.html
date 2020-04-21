@@ -13,10 +13,10 @@
             {{ form.hidden_tag() }}
                 <div class="form-group">
                     {{ form.username.label(class="form-control-label") }}
-                    {% if form.username.error %}
+                    {% if form.username.errors %}
                         {{ form.username(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.username.error %}
+                            {% for error in form.username.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
@@ -26,10 +26,10 @@
                 </div>
                 <div class="form-group">
                     {{ form.email.label(class="form-control-label") }}
-                    {% if form.email.error %}
+                    {% if form.email.errors %}
                         {{ form.email(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.email.error %}
+                            {% for error in form.email.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
@@ -39,10 +39,10 @@
                 </div>
                 <div class="form-group">
                     {{ form.password.label(class="form-control-label") }}
-                    {% if form.password.error %}
+                    {% if form.password.errors %}
                         {{ form.password(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.password.error %}
+                            {% for error in form.password.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
@@ -52,10 +52,10 @@
                 </div>
                 <div class="form-group">
                     {{ form.confirm_password.label(class="form-control-label") }}
-                    {% if form.confirm_password.error %}
+                    {% if form.confirm_password.errors %}
                         {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.confirm_password.error %}
+                            {% for error in form.confirm_password.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>

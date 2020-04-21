@@ -18,6 +18,8 @@ def index():
         if(user and bcrypt.check_password_hash(user.password,form.password.data)):
             login_user(user,remember=form.remember.data)
             return redirect(url_for('home'))
+        else:
+            flash(f"Please check username and password","danger")
     return render_template("index.html",form=form)
 
 

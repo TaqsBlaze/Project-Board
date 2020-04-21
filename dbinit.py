@@ -34,6 +34,7 @@ class Db:
         init ------> to initialize db
         drop ------> to drop all tables
         '''
+        return msg
 try:
     if(sys.argv[1]=='init'):
         Db().init_db()
