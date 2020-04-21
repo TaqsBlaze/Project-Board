@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Length,Email,EqualTo,ValidationErro
 from LeNode.Models.models import User
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username',validators=[DataRequired(),Length(min=3,max=20)])
+    username = StringField('Username',validators=[DataRequired(),Length(min=2,max=15)])
     email = StringField('Email',validators=[DataRequired(),Email()])
     #number = IntegerField("Phone number",validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=8)])
