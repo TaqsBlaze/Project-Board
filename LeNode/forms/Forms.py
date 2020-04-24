@@ -27,7 +27,7 @@ class LoginForm(FlaskForm):
     #username = StringField('Username',validators=[DataRequired(),Length(min=3,max=20)])
     user = StringField('User name',validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=8)])
-    remember = BooleanField("Remember me")
+    remember = BooleanField("Remember me",validators=[None],default="unchecked")
     submit = SubmitField('Login')
 
 
@@ -59,3 +59,11 @@ class PostForm(FlaskForm):
 class Search(FlaskForm):
     search = StringField("Search",validators=[DataRequired()])
     submit = SubmitField("Search")
+    
+class UserLevelUp(FlaskForm):
+    level_up = BooleanField(default="checked")
+    submit = SubmitField()
+    
+class UserLevelDown(FlaskForm):
+    level_down = BooleanField(default="checked")
+    submit = SubmitField()

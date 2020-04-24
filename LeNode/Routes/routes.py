@@ -1,6 +1,6 @@
 from flask import render_template,url_for,redirect,flash,request
-from LeNode.Models.models import User, Post
-from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile,Search
+from LeNode.Models.models import User, Post, Notifications, Comments
+from LeNode.forms.Forms import LoginForm,RegistrationForm,PostForm,UpdateProfile,Search,UserLevelUp, UserLevelDown
 from LeNode import app
 import secrets
 import os
@@ -12,8 +12,7 @@ from flask_login import login_user,current_user,logout_user,login_required
 @app.route("/index",methods=['GET','POST'])
 def index():
     form = LoginForm()
-
-    if(form.validate_on_submit()):
+    if(form.validate_on_submit):
         user = User.query.filter_by(username=form.user.data).first()
         if(user and bcrypt.check_password_hash(user.password,form.password.data)):
             login_user(user,remember=form.remember.data)
@@ -39,7 +38,7 @@ def home():
 
 
 def save_image(form_image):
-    random_hex = secrets.token_hex(8)
+    random_hex = secrets.token_hex(6)
     file_name,filext = os.path.splitext(form_image.filename)
     image_name = random_hex + filext
     image_path = os.path.join(app.root_path,'static/images/profile_pix',image_name)
@@ -54,10 +53,10 @@ def profile():
     User profile page route
     '''
     form = UpdateProfile()
-    projects = Post.query.filter_by(title=Post.title)
     if(form.image.data):
             image_file = save_image(form.image.data)
             current_user.profile_pic = image_file
+            db.session.commit()
     if(form.validate_on_submit()):
         current_user.username = form.username.data
         current_user.bio = form.bio.data
@@ -67,7 +66,7 @@ def profile():
         form.username.data = current_user.username
         form.bio.data = current_user.bio
     profile_pic = url_for("static",filename="images/profile_pix/" + current_user.profile_pic)
-    return render_template("profile.html",form=form,projects=projects,profile_pic=profile_pic)
+    return render_template("profile.html",form=form,profile_pic=profile_pic)
 
 @app.route("/register",methods=['GET','POST'])
 def register():
@@ -114,3 +113,36 @@ def sug_notifs():
     showing search results and suggestions and notifications
     '''
     return render_template("sug_results.html")
+
+@app.route("/posts/<int:post_id>,<int:user_id>,<int:voter_id>/up",methods=['POST','GET'])
+@login_required
+def LevelUp(post_id,user_id,voter_id):
+    up = Post.query.get(post_id)
+    user = User.query.get(user_id)
+    user.level = user.level + 1
+    up.votes = up.votes + 1
+    user.notifications = user.notifications + 1
+    voter = User.query.get(voter_id)
+    #notif = user.notifs(_from=voter.username,title="++'d your post")
+    #db.session.add(notif)
+    db.session.commit()
+    return redirect("/posts")
+
+
+@app.route("/posts/<int:post_id>,<int:user_id>,<int:voter_id>/down",methods=['POST','GET'])
+@login_required
+def LevelDown(post_id,user_id,voter_id):
+    post = Post.query.get(post_id)
+    user = User.query.get(user_id)
+    user.level = user.level - 1
+    post.votes = post.votes - 1
+    voter = User.query.get(voter_id)
+    db.session.commit()
+    return redirect("/posts")
+
+@app.route("/posts/comments/<int:post_id>",methods=['GET','POST'])
+@login_required
+def comments(post_id):
+    post = Post.query.get(post_id)
+    comments = Comments.query.all()
+    return render_template("comments.html",post=post,comments=comments)

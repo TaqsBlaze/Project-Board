@@ -14,13 +14,15 @@ class Db:
     def init_db(self):
         try:
             db.create_all()
+            print("\n\n\n")
             print("[+]Db initialized successfully")
         except Exception as error:
             print(error)
             
     def drop_db(self):
+        print("\n\n\n")
         print("This will delete database table are you sure you want to continue?")
-        action = srt(input("y/n:"))
+        action = str(input("y/n:"))
         if(action=="y"):
             db.drop_all()
             print("[+]Table(s) deleted")
