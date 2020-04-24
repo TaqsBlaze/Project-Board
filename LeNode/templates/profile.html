@@ -28,7 +28,14 @@
         <div class="profile-info">
             <div class="details">
                 <div class="user-name">
-                    <h4>{{current_user.username}}</h4>
+                    <div>
+                        <h4>{{current_user.username}}</h4>
+                    </div>
+                    <div style='background-color: darkslategrey;border-radius: 98pc;width: fit-content;'>
+                        <div style="margin:4px;color:white">
+                            ++{{current_user.level}}
+                        </div>
+                    </div>
                 </div>
                 <div class="card-image">
                     <img class="image-section"

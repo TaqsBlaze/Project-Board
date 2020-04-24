@@ -1,7 +1,11 @@
 body{
     background-color:white;
-    }
-
+}
+.post-link{
+    text-decoration-line: none;
+    color: black;
+    outline: none;
+}
 .login-panel {
         background: rgb(255, 255, 255);
         font-family: trench;
@@ -11,8 +15,9 @@ body{
         margin-left: 8cm;
         left: 2cm;
         width: 15cm;
-        top: 2.4cm;
+        top: 1.4cm;
         text-align:center;
+        height: 16cm;
         float: left;
         box-shadow: 1px 10px 10px 1px rgba(63, 63, 61, 0.226);
     }
@@ -57,24 +62,23 @@ body{
         border-radius:4px;
         padding-bottom:2cm;
         position:absolute;
-        top:3.5cm;
-        float: left;
+        top:2.1cm;
         width:14cm;
-        margin-left:4cm;
+        margin-left:0.2cm;
         box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
 }
-.post-profile-update .content{
-    margin:8px;
+.post-profile-update .profile-info{
+    margin:23px;
 }
 .home-project-card{
     background-color:white;
-    padding-bottom:1cm;
+    padding-bottom:0.3cm;
     /*box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);*/
     border-radius:2px;
     margin:20px;
     width:13.5cm;
     border-style: groove;
-    border-color: lightgray;
+    border-color: rgb(46, 44, 44);
     border-width: thin;
 	z-index:2;
 	
@@ -87,27 +91,26 @@ body{
 	
 }
 .post-content{
-	font-family: "Lucida Console",Consolas;
-	latter-spacing:-2.8px;
-	word-spacing:-4.8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    position: relative;
+    top:-1.1cm;
 }
 .divider-hr{
-<<<<<<< HEAD
-    margin-top:33px;
+    margin-top:3px;
     position:relative;
-    top:15px;
+    top:-37px;
 	overflow:hidden;
-	margin:0px;
+    margin:0px;
+    width: 100%;
 }
 .post-date{
-	color:lightblue;
+	color: rgb(36, 36, 35);
 	font-family: "New Roman",Roboto;
 	position:relative;
-	top:-0.5px;
-	float:left;
-=======
-    margin-top:25px;
->>>>>>> 18d3ce6f224bbe7ebcd3cf6112adc5aa14e0ce29
+	top:-10px;
+    margin-top:20px;
 }
 .content-box .new-post-panel{
     background-color: white;
@@ -148,41 +151,32 @@ body{
     position:absolute;
 }
 iframe{
-<<<<<<< HEAD
-    width:66.1%;
-	overflow:hidden;
-    height:17cm;
-    border-top:0px;
-    border-left:0px;
-    border-bottom:0px;
-    border-width:thin;
-    border-color:lightgray;
-=======
     width:66.5%;
     height:17cm;
     border-top:0px;
     border-left:0px;
->>>>>>> 18d3ce6f224bbe7ebcd3cf6112adc5aa14e0ce29
 }
 .search-user{
     position:relative;
     padding-bottom:0.3cm;
     top:0.1cm;
     float:right;
-<<<<<<< HEAD
     margin-right:1cm;
-    width:9.6cm;
-    padding-bottom:19px;
+    width:11.6cm;
+    padding-bottom:25px;
     border-radius:3px;
-=======
-    margin-right:3cm;
-    width:9.6cm;
-    padding-bottom:5px;
-    border-radius:5px;
->>>>>>> 18d3ce6f224bbe7ebcd3cf6112adc5aa14e0ce29
-    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+    box-shadow:0px 2px 1px 0px rgba(0, 0, 0, 0.294);
+    display: flexbox;
+    flex-direction: column;
+    flex-flow: column;
 }
-.search-user .search-form{
+.search-user .search-user-inner{
+    padding-bottom:0.3cm;
+    width:11.6cm;
+    padding-bottom:25px;
+    border-radius:3px;
+}
+.search-user-inner .search-form{
     width:7.5cm;
     height:2.5cm;
     font-family: trench;
@@ -198,25 +192,69 @@ iframe{
     position:relative;
     top:-18px;
 }
-.search-results{
+.search-frame{
+    width:10.2cm;
+    height: 10.4cm;
+    margin-left: 0.5cm;
+}
+.level-btn-area{
+    display: grid;
+    grid-column: 2 1fr;
+    gap: 2px;
     position: relative;
-    top:5cm;
-    margin-left:15cm;
-    float:right;
-    width:11cm;
-    height: 8cm;
-    place-items: 5px 8px;
-    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
+    overflow: hidden;
+    offset: x;
+    float: right;
+    top:-1.2cm;
 }
-.search-results .search-data{
-    box-shadow:1px 2px 20px 1px rgba(0, 0, 0, 0.294);
-    border-radius: 6px;
+
+.name-level-area{
+    display: flex;
+    flex-direction:column;
+    flex-flow: column;
+    flex-grow: inherit;
 }
-.search-results .search-data .bio{
+.name-level-area .level-counter{
+    background: rgb(36, 36, 35);
+    color:white;
+    border-radius: 4px;
+    align-content: flex-start;
+    width:fit-content;
+    height:0.6cm;
     position: relative;
-    margin-top: 0.2cm;
-<<<<<<< HEAD
+    left:1.5cm;
+    top:.1cm;
+    z-index:5;
 }
-=======
+.name-level-area .level-counter .counter{
+    color:rgb(189, 183, 183);
+    margin:8px;
+    margin-bottom: 13px;
+    font-size:13px;
+    position:relative;
+    top:-5.4px;
 }
->>>>>>> 18d3ce6f224bbe7ebcd3cf6112adc5aa14e0ce29
+
+.level-btn{
+    background: rgb(36, 36, 35);
+    border-radius: 100pc;
+    width: 0.8cm;
+    height: 0.8cm;
+}
+.title-date{
+    display: flexbox;
+    flex-direction: column;
+    flex-flow: column;
+    -ms-flex-flow: column;
+    position: relative;
+    top:-1cm;
+}
+
+.vote-image-btn{
+    border-radius: 100pc;
+    width: 0.5cm;
+    height: 0.5cm;
+    position: relative;
+    left:3.9px;
+    top:4.7px;
+}

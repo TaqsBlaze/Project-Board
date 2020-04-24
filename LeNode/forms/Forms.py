@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Length,Email,EqualTo,ValidationErro
 from LeNode.Models.models import User
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username',validators=[DataRequired(),Length(min=3,max=20)])
+    username = StringField('Username',validators=[DataRequired(),Length(min=2,max=15)])
     email = StringField('Email',validators=[DataRequired(),Email()])
     #number = IntegerField("Phone number",validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=8)])
@@ -27,7 +27,7 @@ class LoginForm(FlaskForm):
     #username = StringField('Username',validators=[DataRequired(),Length(min=3,max=20)])
     user = StringField('User name',validators=[DataRequired()])
     password = PasswordField('Password',validators=[DataRequired(),Length(min=4,max=8)])
-    remember = BooleanField("Remember me")
+    remember = BooleanField("Remember me",validators=[None],default="unchecked")
     submit = SubmitField('Login')
 
 
@@ -49,15 +49,21 @@ class UpdateProfile(FlaskForm):
         if(bio.data != current_user.bio):
             bio = User.query.filter_by(bio=bio.data).first()
             if(bio):
-                raise ValidationError("")
+                raise ValidationError(f"Error:{bio.data}\Bio prepand")
 
 class PostForm(FlaskForm):
-	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=20)])
-	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=250)])
-	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=8)])
-	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=60)])
+	project_title = StringField("Title",validators=[DataRequired(),Length(min=1,max=50)])
+	project_description = TextAreaField("Descriptin",validators=[DataRequired(),Length(min=1,max=450)])
 	submit = SubmitField("Post")
 
 class Search(FlaskForm):
     search = StringField("Search",validators=[DataRequired()])
     submit = SubmitField("Search")
+    
+class UserLevelUp(FlaskForm):
+    level_up = BooleanField(default="checked")
+    submit = SubmitField()
+    
+class UserLevelDown(FlaskForm):
+    level_down = BooleanField(default="checked")
+    submit = SubmitField()

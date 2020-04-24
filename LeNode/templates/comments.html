@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block body %}
+	<div>
+		<div>
+			{{post.author.username}}<br>
+			{{post.votes}}<br>
+			{{post.title}}<br>
+			{{post.post}}
+		</div>
+		<p></p>
+		{% for comment in comments %}
+			<div>
+				<div>
+					{{comment.comments.author.username}}
+					{{comment.comments.author.level}}
+				</div>
+				<div>
+					{{comment.comment}}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock body %}

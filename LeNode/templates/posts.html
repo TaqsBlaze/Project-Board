@@ -7,12 +7,47 @@
 			 <div class="card-image">
 				 <img src="{{url_for('static',filename='images/profile_pix/' + project.author.profile_pic)}}" class="home-image-section">
 			 </div>
-			 <p>
-				<h5 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h5>
-			 </p>
+			 <div class="name-level-area">
+				<div>
+					<b><h7 style="position:relative;margin-left:1.5cm;">{{ project.author.username }}</h7></b>
+				</div>
+				<div class="level-counter">
+					<div class="counter">
+						+{{project.votes}}
+					</div>
+				</div>
+			 </div>
+			 {% if current_user.id == project.author.id %}
+				<div class="level-btn-area">
+					<div class="level-up level-btn">
+						<a href="{{url_for('LevelUp',post_id=project.id,user_id=project.author.id,voter_id=current_user.id)}}" aria-hidden="true"><img src="{{url_for('static',filename='images/++.png')}}" class="vote-image-btn"></a>
+					</div>
+					<div class="level-down level-btn">
+						<a href="{{url_for('LevelDown',post_id=project.id,user_id=project.author.id,voter_id=current_user.id)}}"><img src="{{url_for('static',filename='images/--.png')}}" class="vote-image-btn"></a>
+					</div>
+				</div>
+			{% else %}
+				<div class="level-btn-area">
+					<div class="level-up level-btn">
+						<a href="{{url_for('LevelUp',post_id=project.id,user_id=project.author.id,voter_id=current_user.id)}}"><img src="{{url_for('static',filename='images/++.png')}}" class="vote-image-btn"></a>
+					</div>
+					<div class="level-down level-btn">
+					<a href="{{url_for('LevelDown',post_id=project.id,user_id=project.author.id,voter_id=current_user.id)}}"><img src="{{url_for('static',filename='images/--.png')}}" class="vote-image-btn"></a>
+					</div>
+				</div>
+			{% endif %}
 			 <hr class="divider-hr">
-			 <p><b><h5>{{ project.title }}</h5></b><small class="post-date">{{project.date_posted.date()}}</small></p><br>
-			 <p class="post-content">{{ project.post}}</p>
+			 <a href="{{url_for('comments',post_id=project.id)}}" class="post-link">
+				<div class="title-date">
+					<div>
+						<b><h5>{{ project.title }}</h5></b>
+					</div>
+					<div> 
+						<small class="post-date">{{project.date_posted.date()}}</small>
+					</div>
+				</div>
+				<div class="post-content">{{project.post}}</div>
+			</a>
 		 </div>
 	 </div>
 	{% endfor %}

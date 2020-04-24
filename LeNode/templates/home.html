@@ -16,29 +16,21 @@ AND SHOW PROJECTS POSTED-->
         </nav>
         <hr><p/>
         <div class="search-user">
-            <div class="search-form">
-            <form action="" method="POST">
-                {{ search_form.hidden_tag() }}
-                    {{ search_form.search.label(class="form-control-sm col-form-label") }}
-                    {{ search_form.search(class="form-control-label form-text ml-3 mt-0 place") }}
-                    {{ search_form.submit(class="circle btn-secondary btn-small search-btn-place ml-3")}}
-            </form>
-            <!--
-            <div class="search-results">
-                {% if search %}
-                    {% for results in search %}
-                        <div class="search-data">
-                            <div class="user-name">
-                                {{results.username}}
-                            </div>
-                            <div class="bio">
-                                {{results.bio}}
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
+            <div class="search-user-inner">
+                <div class="search-form">
+                    <form action="" method="POST">
+                        {{ search_form.hidden_tag() }}
+                            {{ search_form.search.label(class="form-control-sm col-form-label") }}
+                            {{ search_form.search(class="form-control-label form-text ml-3 mt-0 place") }}
+                            {{ search_form.submit(class="circle btn-secondary btn-small search-btn-place ml-3")}}
+                    </form>
+                </div>
             </div>
-        -->
+            <div class="search-frame">
+                <!--
+               <iframe src="{{url_for('sug_notifs')}}" class="search-frame"></iframe>
+                -->
+            </div>
         </div>
            <!--
         <div class="search-results">
