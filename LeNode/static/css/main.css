@@ -1,7 +1,11 @@
 body{
     background-color:white;
-    }
-
+}
+.post-link{
+    text-decoration-line: none;
+    color: black;
+    outline: none;
+}
 .login-panel {
         background: rgb(255, 255, 255);
         font-family: trench;
